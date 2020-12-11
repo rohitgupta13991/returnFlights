@@ -5,10 +5,20 @@ var EC = protractor.ExpectedConditions;
 browser.waitForAngularEnabled(false);
 browser.get('https://ixigo.com/');
 
-describe('Browse jobs page automation', function() {
+describe('Return flights automation', function() {
 
-    it('verify search flight results', function() {
-        browser.wait(EC.visibilityOf(searchFlight.flight.destinationCity), 60000);
-        coms.verifySearchFlight();
+    it('get search flight results', function(done) {
+        browser.wait(EC.visibilityOf(searchFlight.flight.roundTrip), 60000);
+        searchFlight.flight.roundTrip.click();
+        coms.getSearchFlight();
+        done();
     });
+    it('fetch price in arrays', function (done) {
+        coms.fetchPrices();
+        done();
+    });
+    it('find cheapest combo', function (done) {
+        coms.cheapestCombo();
+        done();
+    })
 });
