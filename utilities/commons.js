@@ -49,7 +49,7 @@ var timestampToDDMMYYYY = function (ts) {
 exports.fetchPrices = async function () {
     'use strict';
     //wait for all the results to load
-    browser.sleep(10000);
+    browser.sleep(5000);
 
 
     var dc =  await searchFlight.flight.depPrices.count().then(function(count){
@@ -58,10 +58,6 @@ exports.fetchPrices = async function () {
     var rc =  await searchFlight.flight.retPrices.count().then(function(count1) {
         return count1;
     });
-
-    console.log("DEP COUNT"+ dc);
-    console.log("RET COUNT"+ rc);
-
 
     var a = 0, b = 0;
     for (var i=0; i<dc; i++) {
